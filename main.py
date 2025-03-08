@@ -9,13 +9,13 @@ print("Połączenie z bazą danych udane!")
 collection = db.books
 
 # Przykład dodawania dokumentu do bazy danych
-# document = {
-#     "title": "Wielki Gatsby",
-#     "author": "F. Scott Fitzgerald",
-#     "year": 1925,
-#     "genre": "Novel"
-# }
-#
-# collection.insert_one(document)
-#
-# print("Dokument dodany do kolekcji 'books'!")
+document = {
+    "title": "Wielki Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "year": 1925,
+    "genre": "Novel"
+}
+
+collection.insert_one(document)
+
+print("Dokument dodany do kolekcji 'books'!")
