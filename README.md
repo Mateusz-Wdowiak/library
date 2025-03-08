@@ -10,7 +10,7 @@ py --version
 - pobrać jakiś prograć do pythona (pycharm/visual xD)
 - połączyć się z gitem 
 - zainstalować mongo samo w sobie
-- sprawdzic czy mogą to zainstalować jakos odemnie jak w tym gownie od js;a
+- pip install pymongo
 
 Tutaj rozpiska co i kto ma zrobić:
 
