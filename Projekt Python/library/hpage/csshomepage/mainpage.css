@@ -1,0 +1,69 @@
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+h2 {
+    font-size: 80px;
+    margin-left: 10px;
+    border: 4px solid green;
+    border-radius: 50px;
+    padding: 1%;
+}
+
+#orzeł {
+    width: 200px;
+    height: auto;
+    margin-top: 10px;
+}
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 20px 0; 
+}
+
+
+.kafelek {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+    color: blue;
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+    flex: 1 1 200px;
+    box-sizing: border-box;
+}
+
+.kafelek:hover {
+    background-color: #dcdcdc;
+    color: darkorange;
+}
+
+.kafelek:visited {
+    color: darkred;
+}
+
+.kafelek-content {
+    text-align: center;
+}
+
+.kafelek h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+
+main p {
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 20px;
+}
