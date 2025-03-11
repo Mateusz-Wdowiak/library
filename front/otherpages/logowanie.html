@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="pl">
     <head>
-    <meta charset="UtF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="csshomepage/login.css">
+    <link rel="stylesheet" href="../csshomepage/login.css">
     <title> Logowanie</title>
     </head>
 <body>
+    <div class="container">
+        <div class="profile-icon">
+        </div>
     <form>
         <div>
         <label for="nazwau">Nazwa Użytkownika</label><br>
-            <input type="text" id="fname" name="fname" required=""><br>
+            <input type="text" id="fname" name="fname" required placeholder="Wpisz nazwę użytkownika"><br>
         </div>
         <div>
             <label for="pass">Hasło:</label><br>
             <input type="password" id="pas" name="password" minlength="8" required="8">
         </div>
         <div>
-            <button>Potwierdź</button>
+            <button type="submit">Potwierdź</button>
             <input type="checkbox" value="ls_zapamiętaj_mnie" id="zapamiętaj_mnie">
             <label for="zapamiętaj_mnie">Nie wylogowuj mnie</label>
         </div>
