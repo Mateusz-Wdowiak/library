@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+    text-decoration: none;
 }
 
 body {
@@ -20,7 +21,6 @@ header {
     padding: 20px;
     background: rgba(0, 0, 0, 0.5); 
     text-align: center;
-    border-bottom: 2px solid white;
 }
 
 .header-content {
@@ -66,7 +66,6 @@ main {
     background-color: #f0f0f067;
     color: blue;
     text-decoration: none;
-    border: 2px solid transparent;
     border-radius: 8px;
     transition: background-color 0.3s, color 0.3s;
     flex: 1 1 200px;
@@ -108,7 +107,6 @@ footer {
 }
 
 footer hr {
-    border: 1px solid #fff;
     width: 50%;
     margin: 10px auto;
 }
@@ -120,15 +118,48 @@ h3 {
 }
 
 mail {
-    
     font-size: 1.2em;
     margin-top: 20px;
     color: white;
 }
 
 mail a {
-    position:static;
+    position: static;
     color: #dcdcdc;
     font-weight: bold;
-    
+}
+
+
+.neon-text {
+    color: #0ff;
+    text-shadow:
+        0 0 5px #0ff,
+        0 0 10px #0ff,
+        0 0 20px #0ff,
+        0 0 40px #0ff,
+        0 0 80px #0ff;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+@keyframes neon-glow {
+    0%, 100% {
+        text-shadow:
+            0 0 5px #0ff,
+            0 0 10px #0ff,
+            0 0 20px #0ff,
+            0 0 40px #0ff;
+    }
+    50% {
+        text-shadow:
+            0 0 2px #0ff,
+            0 0 4px #0ff,
+            0 0 8px #0ff,
+            0 0 16px #0ff;
+    }
+}
+
+.neon-text-glow {
+    animation: neon-glow 1.5s infinite alternate;
 }
