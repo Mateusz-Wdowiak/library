@@ -12,30 +12,32 @@
         <header>
             <h1>What's new with us? Check it out and see!</h1>
         </header>
-    </body>
     <main>
-        <body>
             <h2>Choose quantity of books</h2>
             <div class="books-container">
-                <div class="book">
+                <div class="book" data-id="67cc6e0583b5428b1b80d575">
                     <img src="../static/photos/dudus.png" alt="Book 1">
                     <p>Duduś-Prezydent we mgle</p>
-                    <input type="number" min="0" max="10" value="0">
-                    <button class="confirm-button" onclick="confirmSelection()">Submit</button>
+                    <label for="value1">Quantity</label>
+                    <input id="value1" type="number" min="0" max="10" value="0">
+                    <button class="confirm-button" onclick="updateQuantity(this)">Submit</button>
                 </div>
-                <div class="book">
+                <div class="book" data-id="67f2cdc5cb7f4bbf143d3846">
                     <img src="../static/photos/konfi.png" alt="Book 2">
                     <p>Konfident</p>
-                    <input type="number" min="0" max="10" value="0">
-                    <button class="confirm-button" onclick="confirmSelection()">Submit</button>
+                    <label for="value2">Quantity</label>
+                    <input id="value2" type="number" min="0" max="10" value="0">
+                    <button class="confirm-button" onclick="updateQuantity(this)">Submit</button>
                 </div>
-                <div class="book">
+                <div class="book" data-id="67f2cdc7cb7f4bbf143d3847">
                     <img src="../static/photos/potato.png" alt="Book 3">
                     <p> Z punktu widzenia ziemniaka</p>
-                    <input type="number" min="0" max="10" value="0">
-                    <button class="confirm-button" onclick="confirmSelection()">Submit</button>
+                    <label for="value3">Quantity</label>
+                    <input id="value3" type="number" min="0" max="10" value="0">
+                    <button class="confirm-button" onclick="updateQuantity(this)">Submit</button>
                 </div>
             </div>
-        </body> 
     </main>
+        <script src="../static/js/fetch.js"></script>
+    </body>
 </html>

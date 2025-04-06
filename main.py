@@ -6,18 +6,19 @@ app = Flask(__name__)
 db = get_db()
 collection = db.books
 
-## rendering pages
-@app.route("/")
-def home():
-    return render_template('index.html')
 
-@app.route("/login")
+
+@app.route("/login.html")
 def login():
     return render_template('login.html')
 
-@app.route("/releases")
+@app.route("/releases.html")
 def releases():
     return render_template('releases.html')
+
+@app.route("/")
+def home():
+    return render_template('index.html')
 
 ## books endpoints
 
@@ -38,31 +39,49 @@ def get_all_books():
     books_list = list(collection.find())
     return jsonify({"books": books_list})
 
-@app.route("/api/books/<int:id>", methods=['GET'])
-def get_book(book_id):
-    book = collection.find_one({"_id": ObjectId(book_id)})
 
-    if not book:
-        return jsonify({"error": "Book not found"}), 404
+@app.route("/api/books/<id>", methods=['GET'])
+def get_book(id):
+    try:
+        if not ObjectId.is_valid(id):
+            return jsonify({"error": "Invalid book ID"}), 400
 
-    return jsonify(book)
+        book = collection.find_one({"_id": ObjectId(id)})
+        if not book:
+            return jsonify({"error": "Book not found"}), 404
 
-@app.route("/api/books/<int:id>", methods=['PUT'])
-def update_book(book_id):
-    data = request.json
-    if not data:
-        return jsonify({"error": "Bad request body"}), 400
+        book['_id'] = str(book['_id'])
+        return jsonify(book)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
-    collection.update_one({"_id": ObjectId(book_id)}, {"$set": data})
-    return jsonify({"message": "Book updated successfully"}), 200
-
-@app.route("/api/books/<int:id>", methods=['DELETE'])
-def delete_book(book_id):
-    collection.delete_one({"_id": ObjectId(book_id)})
+@app.route("/api/books/<string:id>", methods=['DELETE'])
+def delete_book(id):
+    collection.delete_one({"_id": ObjectId(id)})
     return jsonify({"message": "Book deleted successfully"}), 200
 
+@app.route("/api/books/<id>", methods=['PUT'])
+def update_book(id):
+    try:
+        data = request.json
+        if not data or 'quantity' not in data:
+            return jsonify({"error": "Bad request body"}), 400
 
-## TODO auth endpoints
+        if not ObjectId.is_valid(id):
+            return jsonify({"error": "Invalid book ID"}), 400
+
+        result = collection.update_one(
+            {"_id": ObjectId(id)},
+            {"$inc": {"quantity": data['quantity']}}
+        )
+
+        if result.modified_count == 0:
+            return jsonify({"error": "Book not found or not modified"}), 404
+
+        return jsonify({"message": "Book updated successfully"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True)
